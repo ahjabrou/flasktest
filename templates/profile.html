@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block title %} Account {% endblock %}
+
+{% block content %}
+<div class="content-section" style="text-align: center;">
+    <div class="media">
+        {% if current_user.picture_filename %}
+        <img class="rounded-center account-img"
+            src="{{ url_for('uploaded_file', filename=current_user.picture_filename) }}" alt="Profile Picture" width="50">
+        {% endif %}
+        <div class="media-body">
+
+            <h2>{{current_user.username}}</h2>
+            <p class="">{{current_user.email}}</p>
+        </div>
+    </div>
+</div>
+<br>
+<div class="content-section shadow-box">
+    <form method="post" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">
+                Modifiez vos informations
+            </legend>
+
+            <div class="form-group">
+
+
+                {{ form.email.label(class="form-control-label") }} <br>
+
+
+                {% if form.email.errors %}
+
+                {{ form.email(class="form-control form-control-lg is-invalid") }}<br>
+
+
+                <div class="retour-invalide">
+
+                    {% for error in form.email.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.email(class="form-control form-control-lg") }}
+
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+
+
+                {{ form.username.label(class="form-control-label") }} <br>
+
+
+                {% if form.username.errors %}
+
+                {{ form.username(class="form-control form-control-lg is-invalid") }}<br>
+
+
+                <div class="retour-invalide">
+
+                    {% for error in form.username.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.username(class="form-control form-control-lg") }}
+
+                {% endif %}
+            </div>
+            <div class="form-group">
+
+
+                {{ form.age.label(class="form-control-label") }} <br>
+
+
+                {% if form.age.errors %}
+
+                {{ form.age(class="form-control form-control-lg is-invalid") }}<br>
+
+
+                <div class="retour-invalide">
+
+                    {% for error in form.age.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.age(class="form-control form-control-lg") }}
+
+                {% endif %}
+            </div>
+            <div class="form-group">
+
+
+                {{ form.picture_filename.label(class="form-control-label") }} <br>
+
+
+                {% if form.picture_filename.errors %}
+
+                {{ form.picture_filename(class="form-control form-control-lg is-invalid") }}<br>
+
+
+                <div class="retour-invalide">
+
+                    {% for error in form.picture_filename.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.picture_filename(class="form-control form-control-lg") }}
+
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit( class="btn btn-outline") }}
+        </div>
+
+
+    </form>
+
+
+</div>
+{% endblock %}

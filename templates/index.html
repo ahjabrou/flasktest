@@ -1,1 +1,38 @@
-<h1>hello</h1>
+{% extends "base.html" %}
+{% block title %} Accueil {% endblock %}
+{% block image %}
+<div class="hero-section d-flex align-items-center text-center">
+<h5 class="hero-text">Welcome to my blog</h5>
+</div> <br>
+  {% endblock %}
+ 
+{% block content %}
+<div class="recent">
+<h3 class="recent-text">Posts récents</h3>
+<div class="row">
+
+
+
+  {% for post in recent_posts %}
+  <div class="col-sm-6 mb-4"> 
+  <article class="media content-section">
+      <p>
+          Auteur: 
+          <img class="rounded-circle article-img" src="{{ url_for('uploaded_file', filename=post.author_profile_pic) }}" alt="Profile Pic" class="mr-2" width="50">
+
+          <a href="#">{{ post.author_name }}</a>
+        </p>
+    <div class="article-media">
+      <small class="text-muted">Date: {{ post.date.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+      
+    </div>
+    <h2><a class="article-title" href="{{ url_for('view_post', post_id=post._id) }}">{{ post.title }}</a></h2>
+    <!-- <p class="article-content">{{ post.content }}</p> -->
+  </article>
+</div>
+  {% endfor %}
+
+</div>
+</div>
+
+{% endblock %}

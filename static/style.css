@@ -1,0 +1,81 @@
+.content-section{
+    width:auto;
+    border: 1px solid rgb(173, 171, 171);
+    padding: 25px; 
+}
+
+.form-group{
+    width: 400px;
+}
+a{
+    text-decoration: none;
+    color:rgb(255, 190, 110);
+}
+/* Ajoutez cette classe à votre fichier CSS ou dans une balise <style> */
+.shadow-box {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Réglez les valeurs selon vos préférences */
+    padding: 20px; /* Ajoutez du remplissage pour donner de l'espace à l'ombre */
+}
+
+ .btn-outline{
+    color:pink;
+ }
+ .btn-outline:hover{
+    background-color: pink;
+    color:white;
+ }
+ .btn-outline-edit{
+    color:rgb(255, 190, 110);
+ }
+ .btn-outline-edit:hover{
+    background-color: rgb(255, 190, 110);
+    color:white;
+ }
+ .btn-outline-delete{
+    color:rgb(55, 43, 28);
+ }
+ .btn-outline-delete:hover{
+    background-color: rgb(55, 43, 28);
+    color:white;
+ }
+ .float-right {
+    float: right;
+    text-decoration: none;
+}
+.ml-2{
+    text-decoration: none;
+}
+body{
+    background-image: url("../static/other_pic/blob-scatter-haikei.svg");
+      /* Autres propriétés de style */
+   width: auto;
+   height: 400px;
+   background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
+   background-position: center;
+   background-repeat: no-repeat;
+   
+}
+.hero-section{
+   /* Remplacez 'example.jpg' par le chemin réel de votre image */
+
+   background-image: url("../static/other_pic/hero-blog.jpg");
+
+   /* Autres propriétés de style */
+   width: auto;
+   height: 400px;
+   background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
+   background-position: center;
+   /* display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center; */
+}
+.hero-text{
+    font-family: 'Montserrat', sans-serif;
+    color:white;
+    font-weight: bolder;
+    font-size: 50px;
+}
+.recent-text{
+    font-family: 'Montserrat', sans-serif;
+}

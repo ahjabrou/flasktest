@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %} Tous les posts {% endblock %}
+
+{% block content %}
+  <h1>Tous les posts</h1>
+
+  {% for post in blogposts %}
+    <article class="media content-section">
+        <p>
+            Auteur: 
+            <img class="rounded-circle article-img" src="{{ url_for('uploaded_file', filename=post.author_profile_pic) }}" alt="Profile Pic" class="mr-2" width="50">
+
+            <a href="#">{{ post.author_name }}</a>
+          </p>
+      <div class="article-media">
+        <small class="text-muted">Date: {{ post.date.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+        
+      </div>
+      <h2><a class="article-title" href="">{{ post.title }}</a></h2>
+      <p class="article-content">{{ post.content }}</p>
+    </article>
+    <hr>
+  {% endfor %}
+
+{% endblock %}

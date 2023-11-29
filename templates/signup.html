@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %} Inscrivez-vous! {% endblock %}
+
+{% block content %}
+<!-- This is the main content block that extends the 'base.html' template -->
+<div class="content-section mx-auto shadow-box">
+    <!-- Container for the registration form -->
+
+    <form method="post" action="">
+        <!-- Registration form using the POST method -->
+
+        {{ form.hidden_tag() }}
+        <!-- Hidden tag to include CSRF token in the form -->
+
+        <fieldset class="form-group">
+            <!-- Fieldset for grouping form elements -->
+            <legend class="border-bottom mb-4">
+                Rejoignez-nous!
+            </legend>
+            <!-- Legend for the form section -->
+
+            <div class="form-group">
+                <!-- Form group for the username field -->
+
+                {{ form.username.label(class="form-control-label") }} <br>
+                <!-- Label for the username field -->
+
+                {% if form.username.errors %}
+                    <!-- Check if there are errors for the username field -->
+                    {{ form.username(class="form-control form-control-lg is-invalid") }}<br>
+                    <!-- Apply 'is-invalid' class if there are errors -->
+                    
+                    <div class="retour-invalide">
+                        <!-- Display errors for the username field -->
+                        {% for error in form.username.errors %}
+                        <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.username(class="form-control form-control-lg") }}
+                    <!-- If no errors, display the username input field -->
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.email.label (class="form-control-label")}} <br>
+                {% if form.email.errors %}
+                {{ form.email(class="form-control form-control-lg is-invalid")  }}<br>
+                <div class="retour-invalide">
+                    {% for error in form.email.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.email(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.password.label (class="form-control-label")}} <br>
+                {% if form.password.errors %}
+                {{ form.password(class="form-control form-control-lg is-invalid")  }}<br>
+                <div class="retour-invalide">
+                    {% for error in form.password.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.password(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.confirm_password.label (class="form-control-label")}} <br>
+                {% if form.confirm_password.errors %}
+                {{ form.confirm_password(class="form-control form-control-lg is-invalid")  }}<br>
+                <div class="retour-invalide">
+                    {% for error in form.confirm_password.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.confirm_password(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+
+        </fieldset>
+        <div class="form-group">
+            <!-- Form group for the submit button -->
+            {{ form.submit(class="btn btn-outline") }}
+            <!-- Submit button with 'btn btn-outline' classes -->
+        </div>
+
+    </form>
+
+    <div class="border-top pt-3">
+        <!-- Section for users who already have an account -->
+
+        <small class="text-muted">
+            Vous avez déjà un compte?<a class="ml-2" href="{{url_for('login')}}">Connectez-vous!</a>
+        </small>
+        <!-- Link to redirect users to the login page if they already have an account -->
+
+    </div>
+
+</div>
+
+{% endblock %}
+<!-- End of the content block -->

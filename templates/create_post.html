@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} Votre article {% endblock %}
+
+{% block content %}
+<div class="postform shadow p-3 mb-5 bg-body rounded">
+    <form method="post" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group1">
+            <legend class="border-bottom mb-4">
+                Ecrivez quelque chose....
+            </legend>
+
+
+            {{ form.hidden_tag() }}
+            {{ form.title.label (class="form-label")}} {{ form.title (class="form-control")}}<br>
+            {{ form.content.label (class="form-label")}} {{ form.content (class="form-control", rows="5")}}<br>
+            {{ form.submit ( class="btn btn-outline")}}
+    </form>
+
+    </fieldset>
+
+
+</div>
+
+{% endblock %}
